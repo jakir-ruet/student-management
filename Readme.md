@@ -1,0 +1,2 @@
+- Step 1: Authentication Module - Database Design (Tables)
+- Step 2: Authentication Module - Packages
