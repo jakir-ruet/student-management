@@ -3,6 +3,8 @@ package com.jakirbd.student_management.auth.mapper;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.jdbc.core.RowMapper;
 
@@ -31,5 +33,18 @@ public class RoleRowMapper implements RowMapper<Role> {
         }
 
         return role;
+    }
+
+    public List<Role> mapRows(ResultSet rs) throws SQLException {
+
+        List<Role> roles = new ArrayList<>();
+
+        int rowNum = 0;
+
+        while (rs.next()) {
+            roles.add(mapRow(rs, rowNum++));
+        }
+
+        return roles;
     }
 }
