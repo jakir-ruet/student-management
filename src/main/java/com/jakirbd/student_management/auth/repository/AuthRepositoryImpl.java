@@ -6,7 +6,12 @@ import com.jakirbd.student_management.auth.mapper.UserRowMapper;
 import com.jakirbd.student_management.auth.model.Permission;
 import com.jakirbd.student_management.auth.model.Role;
 import com.jakirbd.student_management.auth.model.User;
+import com.jakirbd.student_management.common.exception.AccountLockedException;
+import com.jakirbd.student_management.common.exception.DatabaseException;
+import com.jakirbd.student_management.common.exception.InactiveAccountException;
+import com.jakirbd.student_management.common.exception.InvalidCredentialsException;
 import oracle.jdbc.OracleTypes;
+import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.CallableStatementCallback;
 import org.springframework.jdbc.core.CallableStatementCreator;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -14,6 +19,7 @@ import org.springframework.stereotype.Repository;
 
 import java.sql.CallableStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Types;
 import java.util.List;
 import java.util.Optional;
@@ -51,28 +57,65 @@ public class AuthRepositoryImpl implements AuthRepository {
     }
 
     @Override
+
     public Optional<User> login(String username, String passwordHash, String ipAddress) {
-        Long userId = jdbcTemplate.execute(
-                (CallableStatementCreator) connection -> {
-                    CallableStatement cs = connection.prepareCall(
-                            "{ call AUTH_PKG.LOGIN_USER(?, ?, ?, ?, ?) }"
-                    );
 
-                    cs.setString(1, username);
-                    cs.setString(2, passwordHash);
-                    cs.setString(3, ipAddress);
-                    cs.registerOutParameter(4, Types.NUMERIC);
-                    cs.registerOutParameter(5, Types.VARCHAR);
+        try {
 
-                    return cs;
-                },
-                (CallableStatementCallback<Long>) cs -> {
-                    cs.execute();
-                    return cs.getLong(4);
+            Long userId = jdbcTemplate.execute(
+                    (CallableStatementCreator) connection -> {
+
+                        CallableStatement cs = connection.prepareCall(
+                                "{ call AUTH_PKG.LOGIN_USER(?, ?, ?, ?, ?) }"
+                        );
+
+                        cs.setString(1, username);
+                        cs.setString(2, passwordHash);
+                        cs.setString(3, ipAddress);
+
+                        cs.registerOutParameter(4, Types.NUMERIC);
+                        cs.registerOutParameter(5, Types.VARCHAR);
+
+                        return cs;
+                    },
+
+                    (CallableStatementCallback<Long>) cs -> {
+
+                        cs.execute();
+
+                        return cs.getLong(4);
+                    }
+            );
+
+            return findById(userId);
+
+        } catch (DataAccessException ex) {
+
+            Throwable cause = ex.getCause();
+
+            if (cause instanceof SQLException sqlEx) {
+
+                switch (sqlEx.getErrorCode()) {
+
+                    case 20003:
+                        throw new AccountLockedException("User account is locked.");
+
+                    case 20004:
+                        throw new InactiveAccountException("User account is inactive.");
+
+                    case 20005:
+                        throw new InvalidCredentialsException("Invalid username or password.");
+
+                    case 20006:
+                        throw new InvalidCredentialsException("Invalid username or password.");
+
+                    default:
+                        throw new DatabaseException(sqlEx.getMessage());
                 }
-        );
+            }
 
-        return findById(userId);
+            throw new DatabaseException("Database error occurred.", ex);
+        }
     }
 
     @Override

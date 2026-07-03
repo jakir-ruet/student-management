@@ -16,3 +16,25 @@
 - Reporting
 - Dashboard
 - Audit Logs
+
+
+Endpoints of Auth
+
+POST http://localhost:8080/api/auth/register
+POST http://localhost:8080/api/auth/login
+POST http://localhost:8080/api/auth/change-password
+POST http://localhost:8080/api/auth/lock/1
+POST http://localhost:8080/api/auth/unlock/1
+
+common
+└── exception
+    ├── ApiError.java
+    ├── GlobalExceptionHandler.java
+    ├── DatabaseException.java
+    ├── ResourceNotFoundException.java
+    ├── DuplicateResourceException.java
+    ├── InvalidCredentialsException.java
+    ├── AccountLockedException.java
+    ├── InactiveAccountException.java
+    ├── BusinessException.java
+    └── OracleExceptionTranslator.java
