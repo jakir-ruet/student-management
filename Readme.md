@@ -3,6 +3,7 @@
 
 ### Modules and Development Order
 
+```bash
 - Authentication
 - Role Management
 - Permission Management
@@ -16,6 +17,7 @@
 - Reporting
 - Dashboard
 - Audit Logs
+```
 
 Endpoints of Auth
 
