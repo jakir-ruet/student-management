@@ -1,8 +1,8 @@
-package com.jakirbd.student_management.student.model;
+package com.jakirbd.student_management.student.dto;
 
 import java.time.LocalDateTime;
 
-public class StudentAddress {
+public class StudentAddressResponse {
 
     private Long addressId;
     private Long studentId;

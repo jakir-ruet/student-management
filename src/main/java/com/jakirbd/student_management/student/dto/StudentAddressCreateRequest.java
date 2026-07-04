@@ -1,10 +1,7 @@
-package com.jakirbd.student_management.student.model;
+package com.jakirbd.student_management.student.dto;
 
-import java.time.LocalDateTime;
+public class StudentAddressCreateRequest {
 
-public class StudentAddress {
-
-    private Long addressId;
     private Long studentId;
     private String addressType;
     private String addressLine;
@@ -12,16 +9,6 @@ public class StudentAddress {
     private String district;
     private String postalCode;
     private String country;
-    private LocalDateTime createdAt;
-    private LocalDateTime updatedAt;
-
-    public Long getAddressId() {
-        return addressId;
-    }
-
-    public void setAddressId(Long addressId) {
-        this.addressId = addressId;
-    }
 
     public Long getStudentId() {
         return studentId;
@@ -77,21 +64,5 @@ public class StudentAddress {
 
     public void setCountry(String country) {
         this.country = country;
-    }
-
-    public LocalDateTime getCreatedAt() {
-        return createdAt;
-    }
-
-    public void setCreatedAt(LocalDateTime createdAt) {
-        this.createdAt = createdAt;
-    }
-
-    public LocalDateTime getUpdatedAt() {
-        return updatedAt;
-    }
-
-    public void setUpdatedAt(LocalDateTime updatedAt) {
-        this.updatedAt = updatedAt;
     }
 }

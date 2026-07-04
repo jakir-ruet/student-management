@@ -1,11 +1,12 @@
 package com.jakirbd.student_management.common.exception;
 
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
-
 import java.util.HashMap;
 import java.util.Map;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 @RestControllerAdvice
 public class GlobalExceptionHandler {
@@ -34,13 +35,25 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(AccountLockedException.class)
     public ResponseEntity<Map<String, Object>> handleAccountLocked(
-            AccountLockedException ex) {
+                    AccountLockedException ex) {
 
-        Map<String, Object> response = new HashMap<>();
-        response.put("status", 423);
-        response.put("error", "Locked");
-        response.put("message", ex.getMessage());
+            Map<String, Object> response = new HashMap<>();
+            response.put("status", 423);
+            response.put("error", "Locked");
+            response.put("message", ex.getMessage());
 
-        return ResponseEntity.status(HttpStatus.LOCKED).body(response);
+            return ResponseEntity.status(HttpStatus.LOCKED).body(response);
+    }
+
+    @ExceptionHandler(DuplicateResourceException.class)
+    public ResponseEntity<Map<String, Object>> handleDuplicateResource(
+            DuplicateResourceException ex
+    ) {
+        return ResponseEntity
+                .status(HttpStatus.CONFLICT)
+                .body(Map.of(
+                        "status", HttpStatus.CONFLICT.value(),
+                        "message", ex.getMessage()
+                ));
     }
 }

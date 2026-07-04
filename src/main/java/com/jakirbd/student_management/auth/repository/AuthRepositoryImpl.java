@@ -1,5 +1,18 @@
 package com.jakirbd.student_management.auth.repository;
 
+import java.sql.CallableStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Types;
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.dao.DataAccessException;
+import org.springframework.jdbc.core.CallableStatementCallback;
+import org.springframework.jdbc.core.CallableStatementCreator;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Repository;
+
 import com.jakirbd.student_management.auth.mapper.PermissionRowMapper;
 import com.jakirbd.student_management.auth.mapper.RoleRowMapper;
 import com.jakirbd.student_management.auth.mapper.UserRowMapper;
@@ -8,21 +21,11 @@ import com.jakirbd.student_management.auth.model.Role;
 import com.jakirbd.student_management.auth.model.User;
 import com.jakirbd.student_management.common.exception.AccountLockedException;
 import com.jakirbd.student_management.common.exception.DatabaseException;
+import com.jakirbd.student_management.common.exception.DuplicateResourceException;
 import com.jakirbd.student_management.common.exception.InactiveAccountException;
 import com.jakirbd.student_management.common.exception.InvalidCredentialsException;
-import oracle.jdbc.OracleTypes;
-import org.springframework.dao.DataAccessException;
-import org.springframework.jdbc.core.CallableStatementCallback;
-import org.springframework.jdbc.core.CallableStatementCreator;
-import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.stereotype.Repository;
 
-import java.sql.CallableStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Types;
-import java.util.List;
-import java.util.Optional;
+import oracle.jdbc.OracleTypes;
 
 @Repository
 public class AuthRepositoryImpl implements AuthRepository {
@@ -35,6 +38,7 @@ public class AuthRepositoryImpl implements AuthRepository {
 
     @Override
     public Long register(User user) {
+    try {
         return jdbcTemplate.execute(
                 (CallableStatementCreator) connection -> {
                     CallableStatement cs = connection.prepareCall(
@@ -54,7 +58,34 @@ public class AuthRepositoryImpl implements AuthRepository {
                     return cs.getLong(5);
                 }
         );
+
+    } catch (DataAccessException ex) {
+        SQLException sqlException = findSQLException(ex);
+
+        if (sqlException != null && sqlException.getErrorCode() == 20001) {
+            throw new DuplicateResourceException(
+                    "Username or email already exists.",
+                    ex
+            );
+        }
+
+        throw ex;
     }
+}
+
+private SQLException findSQLException(Throwable ex) {
+    Throwable current = ex;
+
+    while (current != null) {
+        if (current instanceof SQLException sqlException) {
+            return sqlException;
+        }
+
+        current = current.getCause();
+    }
+
+    return null;
+}
 
     @Override
 

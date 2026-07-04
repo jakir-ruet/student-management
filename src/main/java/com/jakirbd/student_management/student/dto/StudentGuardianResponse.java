@@ -1,9 +1,8 @@
-package com.jakirbd.student_management.student.model;
+package com.jakirbd.student_management.student.dto;
 
 import java.time.LocalDateTime;
-import java.util.Objects;
 
-public class StudentGuardian {
+public class StudentGuardianResponse {
 
     private Long guardianId;
     private Long studentId;
@@ -15,9 +14,6 @@ public class StudentGuardian {
     private String isPrimary;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
-
-    public StudentGuardian() {
-    }
 
     public Long getGuardianId() {
         return guardianId;
@@ -97,37 +93,5 @@ public class StudentGuardian {
 
     public void setUpdatedAt(LocalDateTime updatedAt) {
         this.updatedAt = updatedAt;
-    }
-
-    public boolean isPrimaryGuardian() {
-        return "Y".equalsIgnoreCase(isPrimary);
-    }
-
-    @Override
-    public String toString() {
-        return "StudentGuardian{" +
-                "guardianId=" + guardianId +
-                ", studentId=" + studentId +
-                ", guardianName='" + guardianName + '\'' +
-                ", relationship='" + relationship + '\'' +
-                ", phone='" + phone + '\'' +
-                ", email='" + email + '\'' +
-                ", occupation='" + occupation + '\'' +
-                ", isPrimary='" + isPrimary + '\'' +
-                ", createdAt=" + createdAt +
-                ", updatedAt=" + updatedAt +
-                '}';
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) return true;
-        if (!(obj instanceof StudentGuardian other)) return false;
-        return Objects.equals(guardianId, other.guardianId);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(guardianId);
     }
 }
