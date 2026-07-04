@@ -46,6 +46,7 @@ Endpoints of Auth
 - PUT http://localhost:8085/api/student-guardians/1
 - DELETE http://localhost:8085/api/student-guardians/1
 
+```bash
 common
 └── exception
     ├── ApiError.java
@@ -58,6 +59,7 @@ common
     ├── InactiveAccountException.java
     ├── BusinessException.java
     └── OracleExceptionTranslator.java
+```
 
 - Create a `.gitattributes`
 
