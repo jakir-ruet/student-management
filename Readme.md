@@ -19,30 +19,30 @@
 
 Endpoints of Auth
 
-POST http://localhost:8085/api/auth/register
-POST http://localhost:8085/api/auth/login
-POST http://localhost:8085/api/auth/change-password
-POST http://localhost:8085/api/auth/lock/1
-POST http://localhost:8085/api/auth/unlock/1
+- POST http://localhost:8085/api/auth/register
+- POST http://localhost:8085/api/auth/login
+- POST http://localhost:8085/api/auth/change-password
+- POST http://localhost:8085/api/auth/lock/1
+- POST http://localhost:8085/api/auth/unlock/1
 
-POST http://localhost:8085/api/students
-GET http://localhost:8085/api/students
-GET http://localhost:8085/api/students/1
-PUT http://localhost:8085/api/students/1
-DELETE http://localhost:8085/api/students/1
-GET http://localhost:8085/api/students/search?q=jakir
+- POST http://localhost:8085/api/students
+- GET http://localhost:8085/api/students
+- GET http://localhost:8085/api/students/1
+- PUT http://localhost:8085/api/students/1
+- DELETE http://localhost:8085/api/students/1
+- GET http://localhost:8085/api/students/search?q=jakir
 
-POST http://localhost:8085/api/student-addresses
-GET http://localhost:8085/api/student-addresses/1
-GET http://localhost:8085/api/student-addresses/student/1
-PUT http://localhost:8085/api/student-addresses/1
-DELETE http://localhost:8085/api/student-addresses/1
+- POST http://localhost:8085/api/student-addresses
+- GET http://localhost:8085/api/student-addresses/1
+- GET http://localhost:8085/api/student-addresses/student/1
+- PUT http://localhost:8085/api/student-addresses/1
+- DELETE http://localhost:8085/api/student-addresses/1
 
-POST http://localhost:8085/api/student-guardians
-GET http://localhost:8085/api/student-guardians/1
-GET http://localhost:8085/api/student-guardians/student/1
-PUT http://localhost:8085/api/student-guardians/1
-DELETE http://localhost:8085/api/student-guardians/1
+- POST http://localhost:8085/api/student-guardians
+- GET http://localhost:8085/api/student-guardians/1
+- GET http://localhost:8085/api/student-guardians/student/1
+- PUT http://localhost:8085/api/student-guardians/1
+- DELETE http://localhost:8085/api/student-guardians/1
 
 common
 └── exception
