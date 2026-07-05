@@ -27,28 +27,53 @@
 - POST http://localhost:8085/api/auth/lock/1
 - POST http://localhost:8085/api/auth/unlock/1
 
-### Students Endpoints
+### Student Endpoints
 
 - POST http://localhost:8085/api/students
-- GET http://localhost:8085/api/students
-- GET http://localhost:8085/api/students/1
 - PUT http://localhost:8085/api/students/1
 - DELETE http://localhost:8085/api/students/1
-- GET http://localhost:8085/api/students/search?q=jakir
+- GET http://localhost:8085/api/students/1
+- GET http://localhost:8085/api/students
+- GET http://localhost:8085/api/students/search?q=Jakir
+
+### Student Address Endpoints
 
 - POST http://localhost:8085/api/student-addresses
-- GET http://localhost:8085/api/student-addresses/1
-- GET http://localhost:8085/api/student-addresses/student/1
 - PUT http://localhost:8085/api/student-addresses/1
 - DELETE http://localhost:8085/api/student-addresses/1
+- GET http://localhost:8085/api/student-addresses/1
+- GET http://localhost:8085/api/student-addresses/student/1
+
+### Student Guardian Endpoints
 
 - POST http://localhost:8085/api/student-guardians
-- GET http://localhost:8085/api/student-guardians/1
-- GET http://localhost:8085/api/student-guardians/student/1
 - PUT http://localhost:8085/api/student-guardians/1
 - DELETE http://localhost:8085/api/student-guardians/1
+- GET http://localhost:8085/api/student-guardians/1
+- GET http://localhost:8085/api/student-guardians/student/1
 
-### Teachers Endpoints
+### Teacher Endpoints
+
+- POST http://localhost:8085/api/teachers
+- PUT http://localhost:8085/api/teachers/1
+- DELETE http://localhost:8085/api/teachers/1
+- GET http://localhost:8085/api/teachers/1
+- GET http://localhost:8085/api/teachers
+- GET http://localhost:8085/api/teachers/search?q=Jakir
+
+### Teacher Address Endpoints
+
+- POST http://localhost:8085/api/teacher-addresses
+- PUT http://localhost:8085/api/teacher-addresses/1
+- DELETE http://localhost:8085/api/teacher-addresses/1
+- GET http://localhost:8085/api/teacher-addresses/teacher/1
+
+### Teacher Contact Endpoints
+
+- POST http://localhost:8085/api/teacher-contacts
+- PUT http://localhost:8085/api/teacher-contacts/1
+- DELETE http://localhost:8085/api/teacher-contacts/1
+- GET http://localhost:8085/api/teacher-contacts/teacher/1
 
 ### gitattributes configure
 
