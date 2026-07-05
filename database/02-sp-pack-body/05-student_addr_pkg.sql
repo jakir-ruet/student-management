@@ -89,8 +89,21 @@ CREATE OR REPLACE PACKAGE BODY STUDENT_ADDRESS_PKG AS
         WHERE ADDRESS_ID = P_ADDRESS_ID;
 
         IF SQL%ROWCOUNT = 0 THEN
-            RAISE_APPLICATION_ERROR(-20401, 'ADDRESS NOT FOUND.');
-        END IF;
+                RAISE_APPLICATION_ERROR(-20401, 'ADDRESS NOT FOUND.');
+            END IF;
+
+        EXCEPTION
+            WHEN DUP_VAL_ON_INDEX THEN
+                RAISE_APPLICATION_ERROR(
+                    -20405,
+                    'STUDENT ALREADY HAS THIS ADDRESS TYPE.'
+                );
+
+            WHEN OTHERS THEN
+                RAISE_APPLICATION_ERROR(
+                    -20406,
+                    'ERROR UPDATING STUDENT ADDRESS: ' || SQLERRM
+                );
     END UPDATE_ADDRESS;
 
 

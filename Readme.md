@@ -19,13 +19,15 @@
 - Audit Logs
 ```
 
-Endpoints of Auth
+### Auth Endpoints
 
 - POST http://localhost:8085/api/auth/register
 - POST http://localhost:8085/api/auth/login
 - POST http://localhost:8085/api/auth/change-password
 - POST http://localhost:8085/api/auth/lock/1
 - POST http://localhost:8085/api/auth/unlock/1
+
+### Students Endpoints
 
 - POST http://localhost:8085/api/students
 - GET http://localhost:8085/api/students
@@ -46,20 +48,9 @@ Endpoints of Auth
 - PUT http://localhost:8085/api/student-guardians/1
 - DELETE http://localhost:8085/api/student-guardians/1
 
-```bash
-common
-└── exception
-    ├── ApiError.java
-    ├── GlobalExceptionHandler.java
-    ├── DatabaseException.java
-    ├── ResourceNotFoundException.java
-    ├── DuplicateResourceException.java
-    ├── InvalidCredentialsException.java
-    ├── AccountLockedException.java
-    ├── InactiveAccountException.java
-    ├── BusinessException.java
-    └── OracleExceptionTranslator.java
-```
+### Teachers Endpoints
+
+### gitattributes configure
 
 - Create a `.gitattributes`
 
