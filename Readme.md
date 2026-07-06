@@ -9,7 +9,7 @@
 - Permission Management
 - Student Management
 - Teacher Management
-- Class & Section Management
+- ACSS Management # A - Academic, C - Classes, S - Sections and S - Shift
 - Subject Management
 - Attendance Management
 - Examination Management
