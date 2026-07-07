@@ -75,6 +75,57 @@
 - DELETE http://localhost:8085/api/teacher-contacts/1
 - GET http://localhost:8085/api/teacher-contacts/teacher/1
 
+### Academic Year Endpoints
+
+- POST   http://localhost:8085/api/acss/academic-years
+- PUT    http://localhost:8085/api/acss/academic-years/{academicYearId}
+- GET    http://localhost:8085/api/acss/academic-years/{academicYearId}
+- GET    http://localhost:8085/api/acss/academic-years
+- DELETE http://localhost:8085/api/acss/academic-years/{academicYearId}
+
+### Class Endpoints
+
+- POST   http://localhost:8085/api/acss/classes
+- PUT    http://localhost:8085/api/acss/classes/{classId}
+- GET    http://localhost:8085/api/acss/classes/{classId}
+- GET    http://localhost:8085/api/acss/classes
+- DELETE http://localhost:8085/api/acss/classes/{classId}
+
+### Academic Year–Class Endpoints - These endpoints open/assign classes under an academic year-
+
+- POST   http://localhost:8085/api/acss/academic-year-classes
+- PUT    http://localhost:8085/api/acss/academic-year-classes/{academicYearClassId}
+- GET    http://localhost:8085/api/acss/academic-year-classes/{academicYearClassId}
+- GET    http://localhost:8085/api/acss/academic-year-classes
+- GET    http://localhost:8085/api/acss/academic-year-classes/by-academic-year/{academicYearId}
+- DELETE http://localhost:8085/api/acss/academic-year-classes/{academicYearClassId}
+
+### Section Endpoints
+
+- POST   http://localhost:8085/api/acss/sections
+- PUT    http://localhost:8085/api/acss/sections/{sectionId}
+- GET    http://localhost:8085/api/acss/sections/{sectionId}
+- GET    http://localhost:8085/api/acss/sections
+- GET    http://localhost:8085/api/acss/sections/by-academic-year-class/{academicYearClassId}
+- DELETE http://localhost:8085/api/acss/sections/{sectionId}
+
+### Shift Endpoints
+
+- POST   http://localhost:8085/api/acss/shifts
+- PUT    http://localhost:8085/api/acss/shifts/{shiftId}
+- GET    http://localhost:8085/api/acss/shifts/{shiftId}
+- GET    http://localhost:8085/api/acss/shifts
+- DELETE http://localhost:8085/api/acss/shifts/{shiftId}
+
+### Section–Shift Endpoints - These endpoints assign shifts to sections
+
+- POST   http://localhost:8085/api/acss/section-shifts
+- PUT    http://localhost:8085/api/acss/section-shifts/{sectionShiftId}
+- GET    http://localhost:8085/api/acss/section-shifts/{sectionShiftId}
+- GET    http://localhost:8085/api/acss/section-shifts
+- GET    http://localhost:8085/api/acss/section-shifts/by-section/{sectionId}
+- DELETE http://localhost:8085/api/acss/section-shifts/{sectionShiftId}
+
 ### gitattributes configure
 
 - Create a `.gitattributes`
