@@ -19,6 +19,25 @@
 - Audit Logs
 ```
 
+```bash
+✔ Authentication
+✔ RBAC (Role & Permission)
+✔ Student
+✔ Teacher
+✔ ACSS # A - Academic, C - Classes, S - Sections and S - Shift
+🔄 Subject
+⬜ Attendance
+⬜ Examination
+⬜ Fee
+⬜ Reporting
+⬜ Dashboard
+⬜ Audit Logs
+⬜ Spring Security + JWT
+⬜ Docker
+⬜ CI/CD
+⬜ AWS Deployment
+```
+
 ### Auth Endpoints
 
 - POST http://localhost:8085/api/auth/register
