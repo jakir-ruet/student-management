@@ -1,48 +1,18 @@
-package com.jakirbd.student_management.acss.dto;
+package com.jakirbd.student_management.acss.dto.response;
 
 import java.time.LocalDateTime;
 
-public class AcademicYearClassResponse {
-
-    private Long academicYearClassId;
-
-    private Long academicYearId;
-    private String yearName;
+public class SchoolClassResponse {
 
     private Long classId;
     private String className;
     private String classCode;
-    private Integer classDisplayOrder;
-
+    private Integer displayOrder;
     private String status;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 
-    public AcademicYearClassResponse() {
-    }
-
-    public Long getAcademicYearClassId() {
-        return academicYearClassId;
-    }
-
-    public void setAcademicYearClassId(Long academicYearClassId) {
-        this.academicYearClassId = academicYearClassId;
-    }
-
-    public Long getAcademicYearId() {
-        return academicYearId;
-    }
-
-    public void setAcademicYearId(Long academicYearId) {
-        this.academicYearId = academicYearId;
-    }
-
-    public String getYearName() {
-        return yearName;
-    }
-
-    public void setYearName(String yearName) {
-        this.yearName = yearName;
+    public SchoolClassResponse() {
     }
 
     public Long getClassId() {
@@ -69,12 +39,12 @@ public class AcademicYearClassResponse {
         this.classCode = classCode;
     }
 
-    public Integer getClassDisplayOrder() {
-        return classDisplayOrder;
+    public Integer getDisplayOrder() {
+        return displayOrder;
     }
 
-    public void setClassDisplayOrder(Integer classDisplayOrder) {
-        this.classDisplayOrder = classDisplayOrder;
+    public void setDisplayOrder(Integer displayOrder) {
+        this.displayOrder = displayOrder;
     }
 
     public String getStatus() {

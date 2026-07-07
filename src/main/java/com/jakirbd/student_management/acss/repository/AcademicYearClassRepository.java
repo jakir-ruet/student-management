@@ -1,9 +1,9 @@
 package com.jakirbd.student_management.acss.repository;
 
-import com.jakirbd.student_management.acss.dto.AcademicYearClassResponse;
-
 import java.util.List;
 import java.util.Optional;
+
+import com.jakirbd.student_management.acss.dto.response.AcademicYearClassResponse;
 
 public interface AcademicYearClassRepository {
 

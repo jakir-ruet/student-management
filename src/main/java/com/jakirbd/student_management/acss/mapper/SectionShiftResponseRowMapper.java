@@ -1,7 +1,8 @@
 package com.jakirbd.student_management.acss.mapper;
 
-import com.jakirbd.student_management.acss.dto.SectionShiftResponse;
 import org.springframework.jdbc.core.RowMapper;
+
+import com.jakirbd.student_management.acss.dto.response.SectionShiftResponse;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;

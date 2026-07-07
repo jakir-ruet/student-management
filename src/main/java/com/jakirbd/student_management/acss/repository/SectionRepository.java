@@ -1,6 +1,6 @@
 package com.jakirbd.student_management.acss.repository;
 
-import com.jakirbd.student_management.acss.dto.SectionResponse;
+import com.jakirbd.student_management.acss.dto.response.SectionResponse;
 import com.jakirbd.student_management.acss.model.Section;
 
 import java.util.List;

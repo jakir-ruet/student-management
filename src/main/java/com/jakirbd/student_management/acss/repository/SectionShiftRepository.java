@@ -1,7 +1,6 @@
 package com.jakirbd.student_management.acss.repository;
 
-import com.jakirbd.student_management.acss.dto.SectionShiftResponse;
-
+import com.jakirbd.student_management.acss.dto.response.SectionShiftResponse;
 import java.util.List;
 import java.util.Optional;
 

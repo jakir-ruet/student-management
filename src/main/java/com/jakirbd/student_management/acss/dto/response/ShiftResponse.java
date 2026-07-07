@@ -1,58 +1,20 @@
-package com.jakirbd.student_management.acss.dto;
+package com.jakirbd.student_management.acss.dto.response;
 
 import java.time.LocalDateTime;
 
-public class SectionShiftResponse {
-
-    private Long sectionShiftId;
-
-    private Long sectionId;
-    private String sectionName;
-    private String sectionCode;
+public class ShiftResponse {
 
     private Long shiftId;
     private String shiftName;
     private String shiftCode;
     private String startTime;
     private String endTime;
-
+    private Integer displayOrder;
     private String status;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 
-    public SectionShiftResponse() {
-    }
-
-    public Long getSectionShiftId() {
-        return sectionShiftId;
-    }
-
-    public void setSectionShiftId(Long sectionShiftId) {
-        this.sectionShiftId = sectionShiftId;
-    }
-
-    public Long getSectionId() {
-        return sectionId;
-    }
-
-    public void setSectionId(Long sectionId) {
-        this.sectionId = sectionId;
-    }
-
-    public String getSectionName() {
-        return sectionName;
-    }
-
-    public void setSectionName(String sectionName) {
-        this.sectionName = sectionName;
-    }
-
-    public String getSectionCode() {
-        return sectionCode;
-    }
-
-    public void setSectionCode(String sectionCode) {
-        this.sectionCode = sectionCode;
+    public ShiftResponse() {
     }
 
     public Long getShiftId() {
@@ -93,6 +55,14 @@ public class SectionShiftResponse {
 
     public void setEndTime(String endTime) {
         this.endTime = endTime;
+    }
+
+    public Integer getDisplayOrder() {
+        return displayOrder;
+    }
+
+    public void setDisplayOrder(Integer displayOrder) {
+        this.displayOrder = displayOrder;
     }
 
     public String getStatus() {

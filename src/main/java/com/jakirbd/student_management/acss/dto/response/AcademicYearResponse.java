@@ -1,4 +1,4 @@
-package com.jakirbd.student_management.acss.dto;
+package com.jakirbd.student_management.acss.dto.response;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;

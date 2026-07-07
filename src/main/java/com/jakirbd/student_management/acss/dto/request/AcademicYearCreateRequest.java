@@ -1,4 +1,4 @@
-package com.jakirbd.student_management.acss.dto;
+package com.jakirbd.student_management.acss.dto.request;
 
 import java.time.LocalDate;
 

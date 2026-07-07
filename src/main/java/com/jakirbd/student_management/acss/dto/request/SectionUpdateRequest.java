@@ -1,6 +1,6 @@
-package com.jakirbd.student_management.acss.dto;
+package com.jakirbd.student_management.acss.dto.request;
 
-public class SectionCreateRequest {
+public class SectionUpdateRequest {
 
     private Long academicYearClassId;
     private String sectionName;
@@ -9,7 +9,7 @@ public class SectionCreateRequest {
     private Integer displayOrder;
     private String status;
 
-    public SectionCreateRequest() {
+    public SectionUpdateRequest() {
     }
 
     public Long getAcademicYearClassId() {

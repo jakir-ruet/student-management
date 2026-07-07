@@ -1,10 +1,9 @@
-package com.jakirbd.student_management.acss.dto;
+package com.jakirbd.student_management.acss.dto.response;
 
 import java.time.LocalDateTime;
 
-public class SectionResponse {
+public class AcademicYearClassResponse {
 
-    private Long sectionId;
     private Long academicYearClassId;
 
     private Long academicYearId;
@@ -13,25 +12,13 @@ public class SectionResponse {
     private Long classId;
     private String className;
     private String classCode;
+    private Integer classDisplayOrder;
 
-    private String sectionName;
-    private String sectionCode;
-    private Integer capacity;
-    private Integer displayOrder;
     private String status;
-
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 
-    public SectionResponse() {
-    }
-
-    public Long getSectionId() {
-        return sectionId;
-    }
-
-    public void setSectionId(Long sectionId) {
-        this.sectionId = sectionId;
+    public AcademicYearClassResponse() {
     }
 
     public Long getAcademicYearClassId() {
@@ -82,36 +69,12 @@ public class SectionResponse {
         this.classCode = classCode;
     }
 
-    public String getSectionName() {
-        return sectionName;
+    public Integer getClassDisplayOrder() {
+        return classDisplayOrder;
     }
 
-    public void setSectionName(String sectionName) {
-        this.sectionName = sectionName;
-    }
-
-    public String getSectionCode() {
-        return sectionCode;
-    }
-
-    public void setSectionCode(String sectionCode) {
-        this.sectionCode = sectionCode;
-    }
-
-    public Integer getCapacity() {
-        return capacity;
-    }
-
-    public void setCapacity(Integer capacity) {
-        this.capacity = capacity;
-    }
-
-    public Integer getDisplayOrder() {
-        return displayOrder;
-    }
-
-    public void setDisplayOrder(Integer displayOrder) {
-        this.displayOrder = displayOrder;
+    public void setClassDisplayOrder(Integer classDisplayOrder) {
+        this.classDisplayOrder = classDisplayOrder;
     }
 
     public String getStatus() {
