@@ -12,6 +12,7 @@ public interface ClassSubjectRepository {
 		Long subjectId,
 		String isMandatory,
 		BigDecimal fullMarks,
+		BigDecimal passMarks,
 		Integer displayOrder,
 		String status
 	);
@@ -22,6 +23,7 @@ public interface ClassSubjectRepository {
 		Long subjectId,
 		String isMandatory,
 		BigDecimal fullMarks,
+		BigDecimal passMarks,
 		Integer displayOrder,
 		String status
 	);
