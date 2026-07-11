@@ -41,7 +41,12 @@ public class SecurityConfig {
                                 // Teacher
                                 "/api/teachers/**",
                                 "/api/teacher-addresses/**",
-                                "/api/teacher-contacts/**"
+                                "/api/teacher-contacts/**",
+
+                                // Subjects
+                                "/api/subjects/**",
+                                "/api/class-subjects/**",
+                                "/api/teacher-subject-assignments/**"
                         ).permitAll()
                         .anyRequest().authenticated()
                 )

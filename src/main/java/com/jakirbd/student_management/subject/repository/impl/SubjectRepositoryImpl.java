@@ -7,6 +7,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import com.jakirbd.student_management.common.exception.OracleExceptionTranslator;
+import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.CallableStatementCallback;
 import org.springframework.jdbc.core.CallableStatementCreator;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -60,7 +62,16 @@ public class SubjectRepositoryImpl implements SubjectRepository {
 
         CallableStatementCallback<Long> action = cs -> {
             cs.execute();
-            return cs.getLong(7);
+
+            Number generatedId = (Number) cs.getObject(7);
+
+            if (generatedId == null) {
+                throw new IllegalStateException(
+                        "SUBJECT_PKG.CREATE_SUBJECT did not return SUBJECT_ID"
+                );
+            }
+
+            return generatedId.longValue();
         };
 
         return jdbcTemplate.execute(csc, action);
@@ -105,32 +116,39 @@ public class SubjectRepositoryImpl implements SubjectRepository {
 
     @Override
     public Optional<Subject> findSubjectById(Long subjectId) {
-        CallableStatementCreator csc = connection -> {
-            CallableStatement cs = connection.prepareCall(
-                    "{call SUBJECT_PKG.GET_SUBJECT_BY_ID(?, ?)}"
-            );
+        try {
+            CallableStatementCreator csc = connection -> {
+                CallableStatement cs = connection.prepareCall(
+                        "{call SUBJECT_PKG.GET_SUBJECT_BY_ID(?, ?)}"
+                );
 
-            cs.setLong(1, subjectId);
-            cs.registerOutParameter(2, OracleTypes.CURSOR);
+                cs.setLong(1, subjectId);
+                cs.registerOutParameter(2, OracleTypes.CURSOR);
 
-            return cs;
-        };
+                return cs;
+            };
 
-        CallableStatementCallback<Optional<Subject>> action = cs -> {
-            cs.execute();
+            CallableStatementCallback<Optional<Subject>> action = cs -> {
+                cs.execute();
 
-            try (ResultSet rs = (ResultSet) cs.getObject(2)) {
-                SubjectRowMapper mapper = new SubjectRowMapper();
+                try (ResultSet rs = (ResultSet) cs.getObject(2)) {
+                    SubjectRowMapper mapper = new SubjectRowMapper();
 
-                if (rs.next()) {
-                    return Optional.of(mapper.mapRow(rs, 1));
+                    if (rs.next()) {
+                        return Optional.of(
+                                mapper.mapRow(rs, 0)
+                        );
+                    }
+
+                    return Optional.empty();
                 }
+            };
 
-                return Optional.empty();
-            }
-        };
+            return jdbcTemplate.execute(csc, action);
 
-        return jdbcTemplate.execute(csc, action);
+        } catch (DataAccessException exception) {
+            throw OracleExceptionTranslator.translate(exception);
+        }
     }
 
     @Override

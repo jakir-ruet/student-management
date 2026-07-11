@@ -145,6 +145,37 @@
 - GET    http://localhost:8085/api/acss/section-shifts/by-section/{sectionId}
 - DELETE http://localhost:8085/api/acss/section-shifts/{sectionShiftId}
 
+### Subject Management endpoints
+
+**Recommended Testing Order**
+- Create Subject
+- Create Class Subject
+- Create Teacher Subject Assignment
+- Get by ID
+- Get All
+- Update
+- Delete
+
+- POST   http://localhost:8085/api/subjects
+- PUT    http://localhost:8085/api/subjects/{subjectId}
+- GET    http://localhost:8085/api/subjects/{subjectId}
+- GET    http://localhost:8085/api/subjects
+- DELETE http://localhost:8085/api/subjects/{subjectId}
+
+- POST   http://localhost:8085/api/class-subjects
+- PUT    http://localhost:8085/api/class-subjects/{classSubjectId}
+- GET    http://localhost:8085/api/class-subjects/{classSubjectId}
+- GET    http://localhost:8085/api/class-subjects
+- GET    http://localhost:8085/api/class-subjects/academic-year-class/{academicYearClassId}
+- DELETE http://localhost:8085/api/class-subjects/{classSubjectId}
+
+- POST   http://localhost:8085/api/teacher-subject-assignments
+- PUT    http://localhost:8085/api/teacher-subject-assignments/{assignmentId}
+- GET    http://localhost:8085/api/teacher-subject-assignments/{assignmentId}
+- GET    http://localhost:8085/api/teacher-subject-assignments
+- GET    http://localhost:8085/api/teacher-subject-assignments/teacher/{teacherId}
+- DELETE http://localhost:8085/api/teacher-subject-assignments/{assignmentId}
+
 ### gitattributes configure
 
 - Create a `.gitattributes`

@@ -205,7 +205,7 @@ public class ClassSubjectRepositoryImpl implements ClassSubjectRepository {
     }
 
     @Override
-    public void deleteClassSubject(Long classSubjectId) {
+    public void deleteClassSubjectById(Long classSubjectId) {
         CallableStatementCreator csc = connection -> {
             CallableStatement cs = connection.prepareCall(
                     "{call CLASS_SUBJECT_PKG.DELETE_CLASS_SUBJECT(?)}"

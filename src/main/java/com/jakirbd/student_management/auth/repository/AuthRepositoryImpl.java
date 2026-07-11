@@ -64,8 +64,7 @@ public class AuthRepositoryImpl implements AuthRepository {
 
         if (sqlException != null && sqlException.getErrorCode() == 20001) {
             throw new DuplicateResourceException(
-                    "Username or email already exists.",
-                    ex
+                    "Username or email already exists."
             );
         }
 
