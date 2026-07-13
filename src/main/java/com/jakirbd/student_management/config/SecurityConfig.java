@@ -46,7 +46,28 @@ public class SecurityConfig {
                                 // Subjects
                                 "/api/subjects/**",
                                 "/api/class-subjects/**",
-                                "/api/teacher-subject-assignments/**"
+                                "/api/teacher-subject-assignments/**",
+
+                                // Attendance
+                                "/api/student-enrollments/**",
+                                "/api/attendance-sessions/**",
+                                "/api/attendance-records/**",
+
+                                // Examination
+                                "/api/exams/**",
+                                "/api/exam-schedules/**",
+                                "/api/exam-results/**",
+
+                                // Fee
+                                "/api/fee-types/**",
+                                "/api/student-fees/**",
+                                "/api/fee-payments/**",
+
+                                // Reporting
+                                "/api/reports/**",
+
+                                // Dashboard
+                                "/api/dashboard/**"
                         ).permitAll()
                         .anyRequest().authenticated()
                 )
