@@ -27,6 +27,7 @@ public class SecurityConfig {
                                 "/v3/api-docs/**",
 
                                 // Auth
+                                "/api/auth/**",
                                 "/api/auth/register",
                                 "/api/auth/login",
                                 "/api/auth/change-password",
