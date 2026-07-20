@@ -180,32 +180,32 @@
 
 #### Student Enrollment
 
-- POST   /api/student-enrollments
-- PUT    /api/student-enrollments/{enrollmentId}
-- GET    /api/student-enrollments/{enrollmentId}
-- GET    /api/student-enrollments
-- GET    /api/student-enrollments/student/{studentId}
-- GET    /api/student-enrollments/section-shift/{sectionShiftId}?status=ENROLLED
-- DELETE /api/student-enrollments/{enrollmentId}
+- POST   http://localhost:8085/api/student-enrollments
+- PUT    http://localhost:8085/api/student-enrollments/{enrollmentId}
+- GET    http://localhost:8085/api/student-enrollments/{enrollmentId}
+- GET    http://localhost:8085/api/student-enrollments
+- GET    http://localhost:8085/api/student-enrollments/student/{studentId}
+- GET    http://localhost:8085/api/student-enrollments/section-shift/{sectionShiftId}?status=ENROLLED
+- DELETE http://localhost:8085/api/student-enrollments/{enrollmentId}
 
 #### Attendance Session
 
-- POST   /api/attendance-sessions
-- PUT    /api/attendance-sessions/{attendanceSessionId}
-- GET    /api/attendance-sessions/{attendanceSessionId}
-- GET    /api/attendance-sessions
-- GET    /api/attendance-sessions/section-shift/{sectionShiftId}?attendanceDate=2026-07-13
-- PATCH  /api/attendance-sessions/{attendanceSessionId}/status
-- DELETE /api/attendance-sessions/{attendanceSessionId}
+- POST   http://localhost:8085/api/attendance-sessions
+- PUT    http://localhost:8085/api/attendance-sessions/{attendanceSessionId}
+- GET    http://localhost:8085/api/attendance-sessions/{attendanceSessionId}
+- GET    http://localhost:8085/api/attendance-sessions
+- GET    http://localhost:8085/api/attendance-sessions/section-shift/{sectionShiftId}?attendanceDate=2026-07-13
+- PATCH  http://localhost:8085/api/attendance-sessions/{attendanceSessionId}/status
+- DELETE http://localhost:8085/api/attendance-sessions/{attendanceSessionId}
 
 #### Attendance Record
 
-- POST   /api/attendance-records
-- PUT    /api/attendance-records/{attendanceRecordId}
-- GET    /api/attendance-records/{attendanceRecordId}
-- GET    /api/attendance-records/session/{attendanceSessionId}
-- GET    /api/attendance-records/enrollment/{enrollmentId}
-- DELETE /api/attendance-records/{attendanceRecordId}
+- POST   http://localhost:8085/api/attendance-records
+- PUT    http://localhost:8085/api/attendance-records/{attendanceRecordId}
+- GET    http://localhost:8085/api/attendance-records/{attendanceRecordId}
+- GET    http://localhost:8085/api/attendance-records/session/{attendanceSessionId}
+- GET    http://localhost:8085/api/attendance-records/enrollment/{enrollmentId}
+- DELETE http://localhost:8085/api/attendance-records/{attendanceRecordId}
 
 ### gitattributes configure
 
